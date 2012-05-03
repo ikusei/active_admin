@@ -77,17 +77,18 @@ module ActiveAdmin
       end
       
       def build_per_page_links
-        page_sizes = [10,30,100,1000]
+        page_sizes = ["10","30","100","1000"]
         links = page_sizes.collect do |psize|
-          link_to("10", { :per_page => psize}.merge(request.query_parameters.except(:commit, :per_page)))
+          link_to(psize, { :per_page => psize }.merge(request.query_parameters.except(:commit, :per_page)))
         end
-        text_node [I18n.t('active_admin.per_page'), links, ""].flatten.join("&nbsp;").html_safe
+        div :class => "per_page_links" do
+          text_node [I18n.t('active_admin.per_page'), links, ""].flatten.join("&nbsp;").html_safe
+        end
       end      
 
       def build_pagination
         options =  request.query_parameters.except(:commit, :format)
-        options[:param_name] = @param_name if @param_name
-
+        options[:param_name] = @param_name if @param_name        
         text_node paginate(collection, options.symbolize_keys)
       end
 
