@@ -43,7 +43,7 @@ module ActiveAdmin
           raise(StandardError, "Collection is not a paginated scope. Set collection.page(params[:page]).per(10) before calling :paginated_collection.")
         end
         
-      
+        build_pagination_with_formats_in_top(options)
         @contents = div(:class => "paginated_collection_contents")
         build_pagination_with_formats(options)
         @built = true
@@ -60,13 +60,29 @@ module ActiveAdmin
 
       protected
 
-      def build_pagination_with_formats(options)
+      def build_pagination_with_formats(options, show_dl_inks=true)
         div :id => "index_footer" do
           build_pagination
           div(page_entries_info(options).html_safe, :class => "pagination_information")
-          build_download_format_links unless @download_links == false
+          build_download_format_links unless @download_links == false || show_dl_inks == false
+          build_per_page_links
         end
       end
+      
+      def build_pagination_with_formats_in_top(options)
+        div :id => "index_top" do
+          build_pagination
+          div(page_entries_info(options).html_safe, :class => "pagination_information")
+        end
+      end
+      
+      def build_per_page_links
+        page_sizes = [10,30,100,1000]
+        links = page_sizes.collect do |psize|
+          link_to("10", { :per_page => psize}.merge(request.query_parameters.except(:commit, :per_page)))
+        end
+        text_node [I18n.t('active_admin.per_page'), links, ""].flatten.join("&nbsp;").html_safe
+      end      
 
       def build_pagination
         options =  request.query_parameters.except(:commit, :format)

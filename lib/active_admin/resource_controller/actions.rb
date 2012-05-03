@@ -6,6 +6,11 @@ module ActiveAdmin
     #
     # We ensure that the functionality provided by Inherited
     # Resources is still available within any ResourceController
+    
+    before_filter :only => :index do 
+        @per_page = params[:per_page].present? ? params[:per_page].to_i : 30
+    end
+    
 
     def index(options={}, &block)
       super(options) do |format|
