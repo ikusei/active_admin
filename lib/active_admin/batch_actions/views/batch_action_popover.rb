@@ -17,8 +17,8 @@ module ActiveAdmin
         options.merge! "data-action" => batch_action.sym,
                        "data-confirm" => batch_action.confirm
 
-        title = I18n.t("active_admin.batch_actions.labels.#{batch_action.sym}", :default => batch_action.title)
-        label = I18n.t("active_admin.batch_actions.labels.#{batch_action.sym}", :title => title)
+        label = I18n.t("active_admin.batch_actions.labels.#{batch_action.sym}", :default => batch_action.title)
+        # label = I18n.t("active_admin.batch_actions.labels.#{batch_action.sym}", :title => title)
 
         super(label, "#", options)
       end
