@@ -11,7 +11,8 @@ module ActiveAdmin
       protected
 
       def title
-        @section.name.to_s.titleize
+        translated_name =  I18n.t("active_admin.dashboard_sections.#{@section.name}", :default => @section.name)
+        translated_name.to_s.titleize
       end
 
     end
