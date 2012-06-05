@@ -35,3 +35,16 @@ public
 .rspec
 .rails-version
 .rbenv-version
+*.rbc
+*.sassc
+.sass-cache
+/vendor/bundle
+/log/*
+/tmp/*
+/db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html

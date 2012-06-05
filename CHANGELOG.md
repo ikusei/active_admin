@@ -4,6 +4,9 @@
 
 * Created new view components (Footer, TitleBar, Header, UtilityNav) to more
   easily customize the views in Active Admin and per namespace. (@gregbell)
+* All CSS is now encapsulated under the `body.active_admin` class. This may
+  change the precedence of styles that you created to override or use in
+  other areas of your application.
 
 ### Deprecations
 
@@ -14,6 +17,13 @@
 * ActiveAdmin::Menu and ActiveAdmin::MenuItem API has changed. If you were
   creating custom menu items, the builder syntax has changed to. Menu#add now
   accepts a MenuItem, instead of building the menu item for you.
+
+## 0.4.4
+
+### Dependencies
+
+* Use `formtastic` ~> 2.1.1 until AA 0.5.0 is released
+* Use `inherited_resources` >= 1.3.1 (ensure flash messages work)
 
 ## 0.4.3
 
