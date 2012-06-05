@@ -10,4 +10,4 @@ $ ->
     window.location.search = ""
     false
 
-  $(".dropdown_button").popover()
+  #$(".dropdown_menu_button").popover()
