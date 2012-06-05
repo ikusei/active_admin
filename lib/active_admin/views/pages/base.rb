@@ -15,6 +15,7 @@ module ActiveAdmin
         def add_classes_to_body
           @body.add_class(params[:action])
           @body.add_class(params[:controller].gsub('/', '_'))
+          @body.add_class("active_admin")
           @body.add_class("logged_in")
           @body.add_class(active_admin_namespace.name.to_s + "_namespace")
         end
@@ -41,7 +42,6 @@ module ActiveAdmin
               build_page_content
               build_footer
             end
-            build_extra_content
           end
         end
 
@@ -126,10 +126,6 @@ module ActiveAdmin
         # Renders the content for the footer
         def build_footer
           insert_tag view_factory.footer
-        end
-
-        def build_extra_content
-          # Put popovers, etc here 
         end
 
       end
