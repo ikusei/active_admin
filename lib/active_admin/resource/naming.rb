@@ -29,7 +29,7 @@ module ActiveAdmin
         if @options[:as]
           I18n.t(@options[:as].downcase, :scope => [:activerecord, :models], :count => 3)
         else
-          resource_name.human(:count => 3, :default => resource_label.pluralize).titleize
+          resource_name.human(:count => 1.1, :default => resource_label.pluralize).titleize
         end
       end
     end
