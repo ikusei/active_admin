@@ -66,7 +66,7 @@ module ActiveAdmin
           if flash.keys.any?
             div :class => 'flashes' do
               flash.each do |type, message|
-                div message, :class => "flash flash_#{type}"
+                div raw(message), :class => "flash flash_#{type}"
               end
             end
           end
