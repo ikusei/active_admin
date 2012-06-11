@@ -34,7 +34,7 @@ module ActiveAdmin
             }
 
             title = I18n.t("active_admin.batch_actions.labels.#{batch_action.sym}", :default => batch_action.title)
-            label = I18n.t("active_admin.batch_actions.action_label", :title => title)
+            label = I18n.t("active_admin.batch_actions.action_label.#{batch_action.sym}", :default => batch_action.title)
 
             item label, "#", options
           end
