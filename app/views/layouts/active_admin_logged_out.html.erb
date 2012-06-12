@@ -20,7 +20,7 @@
   <div id="content_wrapper">
     <% if flash.keys.any? %>
       <% flash.each do |type, message| %>
-        <%= content_tag :div, message, :class => "flash flash_#{type}" %>
+        <%= content_tag :div, raw(message), :class => "flash flash_#{type}" %>
       <% end %>
     <% end %>
     <div id="active_admin_content">
