@@ -131,7 +131,7 @@ module ActiveAdmin
       # methods for quickly displaying items on the index page
       #
       class IndexTableFor < ::ActiveAdmin::Views::TableFor
-        
+
         # Display a column for checkbox
         def selectable_column
           return unless active_admin_config.batch_actions.any?
